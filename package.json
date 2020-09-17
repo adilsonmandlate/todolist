@@ -25,6 +25,18 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "lint-staged": {
+    "./**/*.js": [
+      "./node_modules/.bin/eslint",
+      "./node_modules/.bin/prettier --write \"**/*.{js,json,md}\""
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -38,8 +50,14 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "electron": "^10.1.2",
     "electron-builder": "^22.8.0",
+    "eslint-plugin-react": "^7.20.6",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
     "wait-on": "^5.2.0"
   }
 }
