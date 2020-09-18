@@ -1,0 +1,15 @@
+:root {
+  --bg: #fff;
+  --red: #e74c3c;
+  --green: #1abc9c;
+  --grey: #bdc3c7;
+
+  --h1: 32px;
+  --h2: 28px;
+  --h5: 16px;
+
+  --title-size: var(--h1);
+  --text-size: var(--h5);
+
+  --font-color: #34495e;
+}
