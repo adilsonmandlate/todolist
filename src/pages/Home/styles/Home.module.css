@@ -1,0 +1,93 @@
+.mainHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 50px;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: var(--title-size);
+  margin-bottom: 10px;
+}
+
+.date {
+  color: var(--dark-grey);
+  font-weight: 600;
+  font-size: var(--text-size);
+  text-transform: uppercase;
+}
+
+.addTodo {
+  color: var(--green);
+  text-decoration: none;
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.addTodo:hover {
+  color: #fff;
+  background-color: var(--green);
+}
+
+/** CATEGORIES */
+.todoTitle,
+.categoriesTitle {
+  font-size: calc(var(--text-size) - 2px);
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.sectionContainer:not(:last-child) {
+  padding-bottom: 20px;
+}
+
+/** TODO */
+.todo {
+  padding: 0;
+  list-style: none;
+}
+
+.todo li {
+  display: flex;
+  flex-direction: row;
+  font-weight: 600;
+  padding: 15px 0;
+  cursor: pointer;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.todo li:first-child {
+  padding-top: 0;
+}
+
+.todo li:hover .todoDesc {
+  color: var(--grey);
+}
+
+.todoDesc {
+  color: #34495e;
+  transition: all 0.2s ease-in-out;
+}
+
+.todoDate {
+  text-transform: uppercase;
+  color: var(--grey);
+  font-size: calc(var(--text-size) - 4px);
+}
+
+.todoStatus {
+  width: 22px;
+  height: 22px;
+  margin-right: 16px;
+  border: 3px solid var(--grey);
+  border-radius: 50%;
+}
