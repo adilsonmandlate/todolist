@@ -17,6 +17,10 @@ body {
   color: var(--font-color);
 }
 
+.main {
+  padding: 40px;
+}
+
 p,
 h1,
 h2,
