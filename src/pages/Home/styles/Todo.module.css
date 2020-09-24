@@ -1,0 +1,83 @@
+.container {
+  display: grid;
+  grid-template-columns: 25px 1fr 100px;
+  gap: 10px;
+  padding: 15px 0;
+  align-items: center;
+  border-bottom: 1px solid var(--light-grey);
+  transition: all 0.2s ease-in-out;
+}
+
+.container:first-child {
+  padding-top: 0;
+}
+
+.container:hover .actions {
+  visibility: visible;
+}
+
+.name {
+  color: #34495e;
+  transition: all 0.2s ease-in-out;
+}
+
+.date {
+  text-transform: uppercase;
+  color: var(--grey);
+  font-size: calc(var(--text-size) - 4px);
+}
+
+.status {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  border: 1px solid var(--grey);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.status svg {
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.status:hover {
+  background-color: var(--green);
+  opacity: 0.6;
+  border-color: var(--green);
+  width: 19px;
+  height: 19px;
+}
+
+.status:hover svg {
+  visibility: visible;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  visibility: hidden;
+  justify-content: flex-end;
+}
+
+.deleteAction,
+.editAction {
+  padding: 5px;
+  color: var(--grey);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: color 0.2s ease-in-out;
+}
+
+.editAction:hover {
+  color: var(--green);
+}
+
+.deleteAction:hover {
+  color: var(--red);
+}
