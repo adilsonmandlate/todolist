@@ -19,6 +19,7 @@ const Todo = ({ todo, late = false }) => {
       <div>
         <p className={styles.name}>{todo.name}</p>
         {late && <span className={styles.date}>{todo.date}</span>}
+        <span className={styles.label}>Professional</span>
       </div>
       <div className={styles.actions}>
         <span className={styles.editAction}>

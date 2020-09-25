@@ -27,6 +27,18 @@
   font-size: calc(var(--text-size) - 4px);
 }
 
+.label {
+  border: 1px solid var(--grey);
+  font-weight: 600;
+  border-radius: 5px;
+  font-size: calc(var(--text-size) / 1.4);
+  margin-top: 5px;
+  display: inline-block;
+  padding: 2px 5px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .status {
   width: 20px;
   height: 20px;
