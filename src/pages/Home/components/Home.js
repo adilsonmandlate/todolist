@@ -1,69 +1,64 @@
 import React from "react";
 import { Plus } from "react-feather";
 import { Link } from "react-router-dom";
+import { useTodos } from "../../../provider";
 import styles from "../styles/Home.module.css";
+import Todo from "./Todo";
 
 export const Home = () => {
+  const { today, late } = useTodos();
+
   return (
     <section>
       <header className={styles.mainHeader}>
-        <div className={styles.welcome}>
-          <div className={styles.date}>18 September 2020 - Friday</div>
+        <div className={styles.date}>
+          <div className={styles.fullDate}>
+            <div className={styles.day}>12</div>
+            <div className={styles.monthYear}>
+              <span>September</span>
+              <span>2020</span>
+            </div>
+          </div>
+          <hr className={styles.separator} />
+          <div className={styles.weekday}>Wednesday </div>
         </div>
         <Link className={styles.addTodo} to="/todos/new">
           <Plus />
         </Link>
       </header>
 
-      <div className={styles.sectionContainer}>
-        <header className={styles.categoriesHeader}>
-          <h2 className={styles.categoriesTitle}>Categories</h2>
-        </header>
+      {late.length > 0 && (
+        <div className={styles.sectionContainer}>
+          <header className={styles.categoriesHeader}>
+            <h2 className={styles.todoTitle}>Late Todos (cor: vermelha)</h2>
+          </header>
+          <ul className={styles.todo}>
+            {late.map((todo, key) => (
+              <li key={`${key}-${todo.name}`}>
+                <span className={styles.todoStatus} />
+                <div>
+                  <p className={styles.todoDesc}>{todo.name}</p>
+                  <span className={styles.todoDate}>{todo.date}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
-        <ul className={styles.todo}>
-          <li>
-            <span className={styles.todoStatus} />
-            <span>Color</span>
-          </li>
-        </ul>
-      </div>
+      {today.length > 0 && (
+        <div className={styles.sectionContainer}>
+          <header className={styles.categoriesHeader}>
+            <h2 className={styles.todoTitle}>Todos</h2>
+          </header>
 
-      <div className={styles.sectionContainer}>
-        <header className={styles.categoriesHeader}>
-          <h2 className={styles.todoTitle}>Late Todos (cor: vermelha)</h2>
-        </header>
-        <ul className={styles.todo}>
-          <li>
-            <span className={styles.todoStatus} />
-            <div>
-              <p className={styles.todoDesc}>Finish TODO App</p>
-              <span className={styles.todoDate}>17 Sept 2020</span>
-            </div>
-          </li>
-          <li>
-            <span className={styles.todoStatus} />
-            <div>
-              <p className={styles.todoDesc}>Finish TODO App</p>
-              <span className={styles.todoDate}>17 Sept 2020</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div className={styles.sectionContainer}>
-        <header className={styles.categoriesHeader}>
-          <h2 className={styles.todoTitle}>Todos</h2>
-        </header>
-
-        <ul className={styles.todo}>
-          <li>
-            <span className={styles.todoStatus} />
-            <div>
-              <p className={styles.todoDesc}>Finish TODO App</p>
-            </div>
-          </li>
-        </ul>
-      </div>
+          <ul className={styles.todo}>
+            {today.map((todo, key) => (
+              <Todo todo={todo} />
+            ))}
+          </ul>
+        </div>
+      )}
     </section>
   );
 };
