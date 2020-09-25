@@ -26,8 +26,12 @@ const isToday = (date) => {
 export const useTodos = () => {
   const [state] = useAppState();
 
-  const today = state.todos.filter((todo) => isToday(todo.date));
-  const late = state.todos.filter((todo) => !isToday(todo.date));
+  const today = state.todos.filter(
+    (todo) => isToday(todo.date) && !todo.completed
+  );
+  const late = state.todos.filter(
+    (todo) => !isToday(todo.date) && !todo.completed
+  );
 
   return { today, late };
 };
