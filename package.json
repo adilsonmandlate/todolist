@@ -14,7 +14,8 @@
     "react-dom": "^16.13.1",
     "react-feather": "^2.0.8",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "uuid": "^8.3.0"
   },
   "scripts": {
     "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
