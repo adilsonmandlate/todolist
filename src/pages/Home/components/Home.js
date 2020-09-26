@@ -1,26 +1,28 @@
 import React from "react";
 import { Plus } from "react-feather";
 import { Link } from "react-router-dom";
+import { useDateDetails } from "../../../hooks";
 import { useTodos } from "../../../provider";
 import styles from "../styles/Home.module.css";
 import Todo from "./Todo";
 
 export const Home = () => {
   const { today, late } = useTodos();
+  const date = useDateDetails(new Date());
 
   return (
     <section>
       <header className={styles.mainHeader}>
         <div className={styles.date}>
           <div className={styles.fullDate}>
-            <div className={styles.day}>12</div>
+            <div className={styles.day}>{date.weekDate}</div>
             <div className={styles.monthYear}>
-              <span>September</span>
-              <span>2020</span>
+              <span>{date.month}</span>
+              <span>{date.year}</span>
             </div>
           </div>
           <hr className={styles.separator} />
-          <div className={styles.weekday}>Wednesday </div>
+          <div className={styles.weekday}>{date.weekDay}</div>
         </div>
         <Link className={styles.addTodo} to="/todos/new">
           <Plus />
@@ -54,7 +56,7 @@ export const Home = () => {
 
           <ul className={styles.todo}>
             {today.map((todo, key) => (
-              <Todo todo={todo} />
+              <Todo key={`${key}-${todo.name}`} todo={todo} />
             ))}
           </ul>
         </div>
