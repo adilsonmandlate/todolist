@@ -14,7 +14,7 @@ export const initialState = {
 export const reducer = (state, action) => {
   switch (action.type) {
     case ADD_TODO: {
-      const newState = { ...state, todos: [action.todo, ...state.items] };
+      const newState = { ...state, todos: [action.todo, ...state.todos] };
       setLocalState(newState);
       return newState;
     }
