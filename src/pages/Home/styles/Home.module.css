@@ -81,10 +81,15 @@
 
 /** CATEGORIES */
 .todoTitle,
+.todoTitleLate,
 .categoriesTitle {
   font-size: calc(var(--text-size) - 2px);
   color: var(--green);
   text-transform: uppercase;
+}
+
+.todoTitleLate {
+  color: var(--red);
 }
 
 .sectionContainer:not(:last-child) {
