@@ -1,0 +1,18 @@
+.button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 30px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  background: var(--light-grey);
+}
+
+.main {
+  color: #fff;
+  background-color: var(--green);
+}
+
+.button:hover {
+  text-decoration: underline;
+}
