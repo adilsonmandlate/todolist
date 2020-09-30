@@ -60,9 +60,15 @@
   border-radius: 50%;
   border: none;
   color: #fff;
+  cursor: pointer;
   background-color: var(--green);
   display: flex;
   align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.addTodo:hover {
+  transform: scale(1.5);
 }
 
 .addTodo svg {
