@@ -1,0 +1,55 @@
+:global(.modalActive) {
+  overflow: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 256;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  z-index: 257;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  outline: none;
+  overflow: auto;
+}
+
+.modalContent {
+  position: relative;
+  margin: 0 auto;
+  min-width: 500px;
+  max-width: 700px;
+  border-radius: 5px;
+  padding: 45px 25px;
+  background-color: #fff;
+}
+
+.closeButton {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: #fff;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in;
+}
+
+.closeButton:hover {
+  background-color: var(--red);
+  color: #fff;
+}
