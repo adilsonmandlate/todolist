@@ -19,8 +19,12 @@
   margin: 5px 0;
 }
 
+.inputError {
+  border-bottom: 1px solid var(--red);
+}
+
 .error {
-  font-size: calc(var(--h6) - 3px);
+  font-size: calc(var(--text-size) - 3px);
   color: var(--red);
   display: flex;
   align-items: center;
