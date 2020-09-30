@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Plus } from "react-feather";
-import { Link } from "react-router-dom";
 import { useDateDetails } from "../../../hooks";
 import { useTodos } from "../../../provider";
 import styles from "../styles/Home.module.css";
+import AddTodo from "./AddTodo";
 import Todo from "./Todo";
 
 export const Home = () => {
   const { today, late } = useTodos();
   const date = useDateDetails(new Date());
+  const [isModalOpen, setModalOpen] = useState(false);
 
   return (
     <section>
@@ -24,25 +25,19 @@ export const Home = () => {
           <hr className={styles.separator} />
           <div className={styles.weekday}>{date.weekDay}</div>
         </div>
-        <Link className={styles.addTodo} to="/todos/new">
+        <span className={styles.addTodo} onClick={() => setModalOpen(true)}>
           <Plus />
-        </Link>
+        </span>
       </header>
 
       {late.length > 0 && (
         <div className={styles.sectionContainer}>
           <header className={styles.categoriesHeader}>
-            <h2 className={styles.todoTitle}>Late Todos (cor: vermelha)</h2>
+            <h2 className={styles.todoTitleLate}>Late Todos ({late.length})</h2>
           </header>
           <ul className={styles.todo}>
             {late.map((todo, key) => (
-              <li key={`${key}-${todo.name}`}>
-                <span className={styles.todoStatus} />
-                <div>
-                  <p className={styles.todoDesc}>{todo.name}</p>
-                  <span className={styles.todoDate}>{todo.date}</span>
-                </div>
-              </li>
+              <Todo late={true} key={`${key}-${todo.name}`} todo={todo} />
             ))}
           </ul>
         </div>
@@ -61,6 +56,8 @@ export const Home = () => {
           </ul>
         </div>
       )}
+
+      <AddTodo isModalOpen={isModalOpen} setModalOpen={setModalOpen} />
     </section>
   );
 };
