@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  display: flex;
+  margin: 20px 0 0;
+  flex-direction: column;
+}
+
+.label {
+  font-size: calc(var(--text-size) - 2px);
+  font-weight: 600;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid var(--grey);
+  padding: 8px 0;
+  outline: none;
+  font-size: calc(var(--text-size) + 3px);
+  margin: 5px 0;
+}
+
+.error {
+  font-size: calc(var(--h6) - 3px);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+}
