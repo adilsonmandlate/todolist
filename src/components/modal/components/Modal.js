@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import { X } from "react-feather";
 import styles from "../styles/Modal.module.css";
 
@@ -11,7 +12,7 @@ const Modal = ({ isOpen, closeModal, children }) => {
     return null;
   }
 
-  return (
+  return ReactDOM.createPortal(
     <>
       <div className={styles.overlay} />
       <div
@@ -28,7 +29,8 @@ const Modal = ({ isOpen, closeModal, children }) => {
           {children}
         </div>
       </div>
-    </>
+    </>,
+    document.body
   );
 };
 
