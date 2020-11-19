@@ -94,3 +94,10 @@
 .deleteAction:hover {
   color: var(--red);
 }
+
+.buttonContainer {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+}
