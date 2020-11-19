@@ -30,6 +30,10 @@ export const Home = () => {
         </span>
       </header>
 
+      {!late.length && !today.length && (
+        <h3 className={styles.emptyList}>Nothing to do yet </h3>
+      )}
+
       {late.length > 0 && (
         <div className={styles.sectionContainer}>
           <header className={styles.categoriesHeader}>
