@@ -79,7 +79,16 @@
   transform: rotate(90deg);
 }
 
-/** CATEGORIES */
+.emptyList {
+  font-size: calc(var(--title-size) * 1.5);
+  color: var(--grey);
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .todoTitle,
 .todoTitleLate,
 .categoriesTitle {
