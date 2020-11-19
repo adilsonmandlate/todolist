@@ -2,6 +2,7 @@
   border: none;
   border-radius: 5px;
   padding: 10px 30px;
+  font-size: var(--text-size);
   font-weight: 600;
   outline: none;
   cursor: pointer;
