@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { v4 as uuid4 } from "uuid";
 import { Button, Input } from "../../../components/form";
 import { Modal } from "../../../components/modal";
 import { useAppState } from "../../../provider";
@@ -12,12 +13,16 @@ const AddTodo = ({ isModalOpen, setModalOpen }) => {
 
   const onSubmit = (data) => {
     const todo = {
+      id: uuid4(),
       name: data.todo,
       date: new Date().toISOString(),
+      label: "Professional",
       completed: false,
     };
 
     dispatch({ type: ADD_TODO, todo });
+
+    setModalOpen(false);
   };
 
   return (
