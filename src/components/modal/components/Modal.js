@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { X } from "react-feather";
 import styles from "../styles/Modal.module.css";
 
-const Modal = ({ isOpen, closeModal, children }) => {
+const Modal = ({ isOpen, children }) => {
   isOpen
     ? document.body.classList.add("modalActive")
     : document.body.classList.remove("modalActive");
@@ -22,12 +21,7 @@ const Modal = ({ isOpen, closeModal, children }) => {
         tabIndex={-1}
         role="dialog"
       >
-        <div className={styles.modalContent}>
-          <span className={styles.closeButton} onClick={closeModal}>
-            <X />
-          </span>
-          {children}
-        </div>
+        <div className={styles.modalContent}>{children}</div>
       </div>
     </>,
     document.body
