@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Check, Delete } from "react-feather";
+import { Check, Delete, Calendar } from "react-feather";
 import { Modal } from "../../../components/modal";
 import { Button } from "../../../components/form";
+import { useDateDetails } from "../../../hooks";
 import { useAppState } from "../../../provider";
 import { COMPLETE_TODO, DELETE_TODO } from "../../../provider/constants";
 import styles from "../styles/Todo.module.css";
@@ -9,6 +10,7 @@ import styles from "../styles/Todo.module.css";
 const Todo = ({ todo, late = false }) => {
   const [, dispatch] = useAppState();
   const [isModalOpen, setModalOpen] = useState(false);
+  const { year, month, weekDate, weekDay } = useDateDetails(todo.date);
 
   const completeTodo = () => {
     dispatch({ type: COMPLETE_TODO, id: todo.id });
@@ -26,8 +28,12 @@ const Todo = ({ todo, late = false }) => {
       </span>
       <div>
         <p className={styles.name}>{todo.name}</p>
-        <span className={styles.label}>{todo.label}</span>
-        {late && <p className={styles.date}>{todo.date}</p>}
+        {late && (
+          <p className={styles.date}>
+            <Calendar size={12} />
+            {`${weekDay} ${month} ${weekDate}, ${year}`}
+          </p>
+        )}
       </div>
       <div className={styles.actions}>
         <span
