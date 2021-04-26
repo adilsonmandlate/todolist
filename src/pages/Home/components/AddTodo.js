@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import CalendarAPI from "react-google-calendar-api";
 import { v4 as uuid4 } from "uuid";
 import { Button, Input } from "../../../components/form";
 import { Modal } from "../../../components/modal";
@@ -12,11 +13,18 @@ const AddTodo = ({ isModalOpen, setModalOpen }) => {
   const [, dispatch] = useAppState();
 
   const onSubmit = (data) => {
+    // CalendarAPI.createEventFromNow({ summary: "Example", time: 30 })
+    //   .then((result) => {
+    //     alert(JSON.stringify(result));
+    //   })
+    //   .catch((error) => {
+    //     alert(JSON.stringify(error));
+    //   });
+
     const todo = {
       id: uuid4(),
       name: data.todo,
       date: new Date().toISOString(),
-      label: "Professional",
       completed: false,
     };
 
