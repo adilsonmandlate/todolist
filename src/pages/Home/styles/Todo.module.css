@@ -22,10 +22,17 @@
 }
 
 .date {
-  text-transform: uppercase;
-  color: var(--grey);
-  font-weight: 600;
-  font-size: calc(var(--text-size) - 3px);
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  color: var(--dark-grey);
+  font-weight: 400;
+  margin-top: 8px;
+  font-size: calc(var(--text-size) - 4px);
+}
+
+.date svg {
+  margin-right: 5px;
 }
 
 .label {
