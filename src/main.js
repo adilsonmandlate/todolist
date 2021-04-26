@@ -37,7 +37,7 @@ function setupMenu() {
             dialog.showMessageBox(mainWindow, {
               type: "info",
               title: "About",
-              message: "todolist is built by @adilsonmandlate",
+              message: "todolist app built by @adilsonmandlate",
             });
           },
         },
